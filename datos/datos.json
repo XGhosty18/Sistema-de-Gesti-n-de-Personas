@@ -1,0 +1,43 @@
+[
+  {
+    "tipo": "Cliente",
+    "nombre": "Ana Torres",
+    "direccion": "Av. Primavera 120",
+    "telefono": "987654321",
+    "email": "ana@example.com",
+    "codigo_cliente": "C001",
+    "descuento": 10
+  },
+  {
+    "tipo": "Cliente",
+    "nombre": "Carlos Rojas",
+    "direccion": "Jr. Los Pinos 450",
+    "telefono": "956123456",
+    "email": "carlos@example.com",
+    "codigo_cliente": "C002",
+    "descuento": 20
+  },
+  {
+    "tipo": "Empleado",
+    "nombre": "Lucía Vega",
+    "direccion": "Calle Lima 315",
+    "telefono": "945789123",
+    "email": "lucia@example.com",
+    "codigo_empleado": "E001",
+    "salario": 2500.0,
+    "puesto": "Analista"
+  },
+  {
+    "tipo": "ClienteVIP",
+    "nombre": "Diego Salas",
+    "direccion": "Av. Central 800",
+    "telefono": "934567890",
+    "email": "diego@example.com",
+    "codigo_empleado": "E002",
+    "salario": 3200.0,
+    "puesto": "Supervisor",
+    "codigo_cliente": "C003",
+    "descuento": 25,
+    "puntos_vip": 450
+  }
+]
