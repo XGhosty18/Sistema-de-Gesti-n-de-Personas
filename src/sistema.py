@@ -1,11 +1,13 @@
 # METODOS PROCEDIMENTALES Y FUNCIONES DE ENTRADA DE DATOS
+# USO DE LISTAS, FUNCIONES Y MODULOS
 
 from src.funcional import filtrar_por_nombre
 from src.personas import Cliente, Empleado, ClienteVIP
 
 
-# FUNCIONES PROCEDIMENTALES DE ENTRADA DE DATOS
+# [METODOS PROCEDIMENTALES] Funciones para entrada de datos
 
+# [FUNCIONES] Funciones para entrada de datos validados
 def leer_texto(mensaje):
     """Funcion generica para entrada de texto."""
     while True:
@@ -36,8 +38,7 @@ def leer_flotante(mensaje):
             print("  [!] Error: ingrese un numero valido.")
 
 
-# USO DE SETS (COLECCIONES) PARA VALIDACION
-
+# [COLECCIONES - SETS] Uso de conjuntos para validacion de codigos
 def obtener_codigos_existentes(personas):
     """
     Usa un SET (conjunto) para almacenar los codigos.
@@ -54,7 +55,9 @@ def obtener_codigos_existentes(personas):
 
 # FUNCIONES PROCEDIMENTALES DEL SISTEMA
 
+# [LISTAS] Uso de listas para almacenar objetos
 def registrar_cliente(personas):
+    """Registra un cliente y lo agrega a la lista personas."""
     print("\n  --- REGISTRAR CLIENTE ---")
     codigos_set = obtener_codigos_existentes(personas)
     
@@ -166,6 +169,7 @@ def buscar_persona(personas):
         print(f"\n  {type(p).__name__}: {p.nombre} ({p.email})")
 
 
+# [POLIMORFISMO] Demostracion explicita de polimorfismo
 def demo_polimorfismo(personas):
     """Demostracion explicita de polimorfismo."""
     print("\n--- DEMOSTRACION DE POLIMORFISMO ---")

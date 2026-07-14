@@ -1,7 +1,8 @@
-"""Utilidades funcionales puras usadas por distintos módulos del sistema.
+"""[PARADIGMA FUNCIONAL] Utilidades funcionales puras del sistema.
 
-Este módulo concentra transformaciones sin entrada/salida ni estado global. Así,
-el proyecto integra programación funcional con la capa orientada a objetos.
+Este modulo concentra transformaciones sin entrada/salida ni estado global.
+Integra programacion funcional con la capa orientada a objetos.
+Uso de map, filter, reduce y funciones puras.
 """
 
 from functools import reduce
@@ -11,6 +12,7 @@ from typing import Any, Callable, Iterable, TypeVar
 T = TypeVar("T")
 
 
+# [FUNCIONES PURAS] Funciones sin efectos colaterales
 def aplicar_pipeline(valor: T, *funciones: Callable[[Any], Any]) -> Any:
     """Aplica funciones de izquierda a derecha sin modificar el valor original."""
     return reduce(lambda acumulado, funcion: funcion(acumulado), funciones, valor)
@@ -24,6 +26,7 @@ def limpiar_registro(registro: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+# [MAP] Transformacion funcional de registros
 def transformar_registros(
     registros: Iterable[dict[str, Any]],
 ) -> list[dict[str, Any]]:
@@ -31,6 +34,7 @@ def transformar_registros(
     return list(map(limpiar_registro, registros))
 
 
+# [FILTER] Filtrado funcional de personas por nombre
 def filtrar_por_nombre(personas: Iterable[T], consulta: str) -> list[T]:
     """Selecciona personas por nombre mediante ``filter`` y un predicado."""
     texto = consulta.strip().casefold()
@@ -38,6 +42,7 @@ def filtrar_por_nombre(personas: Iterable[T], consulta: str) -> list[T]:
     return list(filter(coincide, personas))
 
 
+# [REDUCE] Suma funcional de valores numericos
 def totalizar(valores: Iterable[float]) -> float:
     """Suma una secuencia numérica mediante una reducción funcional."""
     return reduce(lambda total, valor: total + float(valor), valores, 0.0)

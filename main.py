@@ -1,4 +1,5 @@
 # SISTEMA DE VENTAS Y FACTURACION
+# ENTRADA Y SALIDA DE DATOS CON MENUS EN CONSOLA
 
 from src.sistema import (
     registrar_cliente, registrar_empleado, registrar_cliente_vip,
@@ -7,7 +8,7 @@ from src.sistema import (
 from src.analisis_datos import mostrar_estadisticas
 from src.persistencia import cargar_datos, guardar_datos
 
-# USO DE TUPLAS
+# [TUPLAS] Uso de tuplas para estilos de formato
 ESTILOS = (
     "=" * 70,
     "-" * 70,
@@ -26,7 +27,7 @@ def imprimir_pie():
     print(f"{ESTILOS[1]}\n")
 
 
-# FUNCIONES DE MENÚS (ENTRADA Y SALIDA DE DATOS)
+# [ENTRADA/SALIDA DE DATOS] Menus en consola con opcion multiple
 def menu_principal():
     imprimir_cabecera("SISTEMA DE GESTIÓN DE PERSONAS", 0)
     print("  [ 1 ] Módulo de Registros (Clientes/Empleados)")

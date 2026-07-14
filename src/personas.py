@@ -1,11 +1,14 @@
-# HERENCIA SIMPLE, HERENCIA MULTIPLE Y POLIMORFISMO (TYPE HINTING)
+# POO: CLASES, OBJETOS, CONSTRUCTORES
+# HERENCIA SIMPLE, HERENCIA MULTIPLE Y POLIMORFISMO
 
 from typing import Any
 
 
+# [POO: CLASE] Clase base Persona
 class Persona:
     """Clase base: representa a una persona generica."""
 
+    # [POO: CONSTRUCTOR] __init__ inicializa los atributos del objeto
     def __init__(self, nombre: str, direccion: str, telefono: str, email: str,
                  **kwargs: Any):
         # Inicialización cooperativa: cierra correctamente la cadena del MRO.
@@ -15,6 +18,7 @@ class Persona:
         self.telefono = telefono
         self.email = email
 
+    # [POLIMORFISMO] metodo mostrar_info() sera sobrescrito por las subclases
     def mostrar_info(self) -> str:
         """Metodo polimorfico: sera sobrescrito por las subclases."""
         return (
@@ -35,9 +39,11 @@ class Persona:
         }
 
 
+# [HERENCIA SIMPLE] Cliente hereda de Persona
 class Cliente(Persona):
     """Herencia simple: Cliente hereda de Persona."""
 
+    # [POO: CONSTRUCTOR] Constructor de Cliente con atributos adicionales
     def __init__(self, nombre: str, direccion: str, telefono: str, email: str,
                  codigo_cliente: str, descuento: int, **kwargs: Any):
         super().__init__(
@@ -50,6 +56,7 @@ class Cliente(Persona):
         self.codigo_cliente = codigo_cliente
         self.descuento = descuento
 
+    # [POLIMORFISMO] misma firma, comportamiento distinto
     def mostrar_info(self) -> str:
         """Polimorfismo: misma firma, comportamiento distinto."""
         return (
@@ -68,9 +75,11 @@ class Cliente(Persona):
         return d
 
 
+# [HERENCIA SIMPLE] Empleado hereda de Persona
 class Empleado(Persona):
     """Herencia simple: Empleado hereda de Persona."""
 
+    # [POO: CONSTRUCTOR] Constructor de Empleado con atributos adicionales
     def __init__(self, nombre: str, direccion: str, telefono: str, email: str,
                  codigo_empleado: str, salario: float, puesto: str,
                  **kwargs: Any):
@@ -85,6 +94,7 @@ class Empleado(Persona):
         self.salario = salario
         self.puesto = puesto
 
+    # [POLIMORFISMO] misma firma, comportamiento distinto
     def mostrar_info(self) -> str:
         """Polimorfismo: misma firma, comportamiento distinto."""
         return (
@@ -104,9 +114,11 @@ class Empleado(Persona):
         return d
 
 
+# [HERENCIA MULTIPLE] ClienteVIP hereda de Cliente Y Empleado simultaneamente
 class ClienteVIP(Cliente, Empleado):
     """HERENCIA MULTIPLE: hereda de Cliente Y Empleado simultaneamente."""
 
+    # [POO: CONSTRUCTOR] Constructor de ClienteVIP con atributos de ambas clases
     def __init__(self, nombre: str, direccion: str, telefono: str, email: str,
                  codigo_cliente: str, descuento: int,
                  codigo_empleado: str, salario: float, puesto: str,
@@ -126,6 +138,7 @@ class ClienteVIP(Cliente, Empleado):
         )
         self.puntos_vip = puntos_vip
 
+    # [POLIMORFISMO] tercera version del mismo metodo
     def mostrar_info(self) -> str:
         """Polimorfismo: tercera version del mismo metodo."""
         return (
